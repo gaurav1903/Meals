@@ -1,16 +1,12 @@
-# meals
-
-A new Flutter application.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Meals
+## A beautiful app to make your favourite dishes 
+## Screenshots
+![](screenshots/Screenshot_2021-01-06-01-34-17-61_077660c8e9128e80d2650dcee5c19d1d.png)
+![](screenshots/Screenshot_2021-01-06-01-34-30-28_077660c8e9128e80d2650dcee5c19d1d.png)
+![](screenshots/Screenshot_2021-01-06-01-34-39-26_077660c8e9128e80d2650dcee5c19d1d.png)
+![](screenshots/Screenshot_2021-01-06-01-34-44-35_077660c8e9128e80d2650dcee5c19d1d.png)
+![](screenshots/Screenshot_2021-01-06-01-34-50-06_077660c8e9128e80d2650dcee5c19d1d.png)
+![](screenshots/Screenshot_2021-01-06-01-34-54-07_077660c8e9128e80d2650dcee5c19d1d.png)
+![](screenshots/Screenshot_2021-01-06-01-34-59-18_077660c8e9128e80d2650dcee5c19d1d.png)
+![](screenshots/Screenshot_2021-01-06-01-35-05-66_077660c8e9128e80d2650dcee5c19d1d.png)
+![](screenshots/Screenshot_2021-01-06-01-35-22-93_077660c8e9128e80d2650dcee5c19d1d.png)
