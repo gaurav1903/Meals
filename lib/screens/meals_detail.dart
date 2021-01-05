@@ -4,6 +4,9 @@ import 'package:meals/12.1 dummy_data.dart';
 import 'package:meals/screens/main_drawer.dart';
 
 class DetailPage extends StatelessWidget {
+  final Function togglefavourites;
+  final List favourites;
+  DetailPage(this.togglefavourites, this.favourites);
   @override
   Widget build(BuildContext context) {
     final String id = ModalRoute.of(context).settings.arguments;
@@ -20,10 +23,30 @@ class DetailPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Container(
-              height: 300,
-              width: double.infinity,
-              child: Image.network(selectedMeal.imageUrl)),
+          Stack(
+            children: [
+              Container(
+                  height: 300,
+                  width: double.infinity,
+                  child: Image.network(selectedMeal.imageUrl)),
+              Container(
+                alignment: Alignment.topRight,
+                child: CircleAvatar(
+                  radius: 30,
+                  child: IconButton(
+                    icon: favourites.any((element) => element.id == id)
+                        ? Icon(Icons.star, size: 40, color: Colors.yellow)
+                        : Icon(Icons.star_border_outlined,
+                            size: 35, color: Colors.yellow),
+                    onPressed: () {
+                      togglefavourites(id);
+                    },
+                  ),
+                  backgroundColor: Colors.black,
+                ),
+              )
+            ],
+          ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
             child: Text('Ingredients',

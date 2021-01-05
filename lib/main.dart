@@ -26,6 +26,16 @@ class _MyAppState extends State<MyApp> {
   };
   List<Meal> availablemeal = DUMMY_MEALS;
   List<Meal> favouritemeals = [];
+  void togglefavourites(String idnum) {
+    final index = favouritemeals.indexWhere((meal) => meal.id == idnum);
+    setState(() {
+      if (index == -1)
+        favouritemeals.add(availablemeal.firstWhere((m) => m.id == idnum));
+      else
+        favouritemeals.removeAt(index);
+    });
+  }
+
   void setfilters(Map<String, bool> filterdata) {
     setState(() {
       filters = filterdata;
@@ -63,7 +73,7 @@ class _MyAppState extends State<MyApp> {
           return Mealscreen(availablemeal);
         },
         '/details': (_) {
-          return DetailPage();
+          return DetailPage(togglefavourites, favouritemeals);
         },
         '/filters': (_) {
           return FilterScreen(filters, setfilters);
