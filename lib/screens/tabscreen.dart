@@ -5,15 +5,14 @@ import 'package:meals/screens/main_drawer.dart';
 import 'package:meals/model/meal.dart';
 
 class TabScreen extends StatefulWidget {
+  final List<Meal> favouritemeals;
+  TabScreen(this.favouritemeals);
   @override
   _TabScreenState createState() => _TabScreenState();
 }
 
 class _TabScreenState extends State<TabScreen> {
-  List<Map<String, Object>> Pages = [
-    {'title': 'Categories', 'widget': Categories()},
-    {'widget': FavouriteScreen(), 'title': 'Favourites'}
-  ];
+  List<Map<String, Object>> Pages;
   int selectedpageindex = 0;
   void selectpage(int index) {
     setState(() {
@@ -22,6 +21,14 @@ class _TabScreenState extends State<TabScreen> {
   }
 
   @override
+  void initState() {
+    Pages = [
+      {'title': 'Categories', 'widget': Categories()},
+      {'widget': FavouriteScreen(widget.favouritemeals), 'title': 'Favourites'}
+    ];
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: MainDrawer(),

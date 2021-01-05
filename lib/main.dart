@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
     'vegetarian': false
   };
   List<Meal> availablemeal = DUMMY_MEALS;
+  List<Meal> favouritemeals = [];
   void setfilters(Map<String, bool> filterdata) {
     setState(() {
       filters = filterdata;
@@ -56,7 +57,7 @@ class _MyAppState extends State<MyApp> {
         shadowColor: Colors.grey,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: TabScreen(), //entry point of app
+      home: TabScreen(favouritemeals), //entry point of app
       routes: {
         '/meals': (_) {
           return Mealscreen(availablemeal);
