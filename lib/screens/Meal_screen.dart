@@ -4,7 +4,7 @@ import 'package:meals/screen_widgets/meal_item.dart';
 import 'package:meals/screens/main_drawer.dart';
 
 class Mealscreen extends StatelessWidget {
-  List<Meal> available;
+  final List<Meal> available;
   Mealscreen(this.available);
   @override
   Widget build(BuildContext context) {

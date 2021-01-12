@@ -36,20 +36,24 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void setfilters(Map<String, bool> filterdata) {
-    setState(() {
-      filters = filterdata;
-      availablemeal = DUMMY_MEALS.where((meal) {
-        if (filters['gluten'] && !meal.isGlutenFree) return false;
-        if (filters['lactose'] && !meal.isLactoseFree) return false;
-        if (filters['vegan'] && !meal.isVegan) return false;
-        if (filters['vegetarian'] && !meal.isVegetarian) return false;
-      }).toList();
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    void setfilters(Map<String, bool> filterdata) {
+      setState(() {
+        filters = filterdata;
+        availablemeal = DUMMY_MEALS.where((meal) {
+          if (filters['gluten'] && !meal.isGlutenFree) return false;
+          if (filters['lactose'] && !meal.isLactoseFree) return false;
+          if (filters['vegan'] && !meal.isVegan) return false;
+          if (filters['vegetarian'] && !meal.isVegetarian) return false;
+          return true;
+        }).toList();
+      });
+    }
+
+    for (int i = 0; i < availablemeal.length; i++)
+      print(availablemeal[i].title);
+    print(availablemeal.length);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(

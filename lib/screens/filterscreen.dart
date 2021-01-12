@@ -3,7 +3,7 @@ import 'package:meals/screens/main_drawer.dart';
 
 class FilterScreen extends StatefulWidget {
   final Function savefilter;
-  final Map<String, bool> filterval;
+  final Map<String, bool> filterval; //map which gives initial value for filters
   FilterScreen(this.filterval, this.savefilter);
   @override
   _FilterScreenState createState() => _FilterScreenState();
@@ -34,6 +34,10 @@ class _FilterScreenState extends State<FilterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(glutenfree);
+    print(vegan);
+    print(vegetarian);
+    print(lactosefree);
     return Scaffold(
       appBar: AppBar(
         title: Text('filters'),
@@ -42,10 +46,10 @@ class _FilterScreenState extends State<FilterScreen> {
             icon: Icon(Icons.save),
             onPressed: () {
               final Map<String, bool> selectedfilters = {
-                'gluten': false,
-                'lactose': false,
-                'vegan': false,
-                'vegetarian': false
+                'gluten': glutenfree,
+                'lactose': lactosefree,
+                'vegan': vegan,
+                'vegetarian': vegetarian
               };
               return widget.savefilter(selectedfilters);
             },
