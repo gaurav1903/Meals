@@ -34,27 +34,15 @@ class _FilterScreenState extends State<FilterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print(glutenfree);
-    print(vegan);
-    print(vegetarian);
-    print(lactosefree);
+    final Map<String, bool> selectedfilters = {
+      'gluten': glutenfree,
+      'lactose': lactosefree,
+      'vegan': vegan,
+      'vegetarian': vegetarian
+    };
     return Scaffold(
       appBar: AppBar(
         title: Text('filters'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.save),
-            onPressed: () {
-              final Map<String, bool> selectedfilters = {
-                'gluten': glutenfree,
-                'lactose': lactosefree,
-                'vegan': vegan,
-                'vegetarian': vegetarian
-              };
-              return widget.savefilter(selectedfilters);
-            },
-          ),
-        ],
       ),
       body: Column(
         children: [
@@ -71,12 +59,14 @@ class _FilterScreenState extends State<FilterScreen> {
                     (newval) {
                   setState(() {
                     glutenfree = newval;
+                    widget.savefilter(selectedfilters);
                   });
                 }),
                 buildswitchtile('Lactose-free',
                     'Only include lactose-free meals', lactosefree, (newval) {
                   setState(() {
                     lactosefree = newval;
+                    widget.savefilter(selectedfilters);
                   });
                 }),
                 buildswitchtile(
@@ -84,12 +74,14 @@ class _FilterScreenState extends State<FilterScreen> {
                     (newval) {
                   setState(() {
                     vegetarian = newval;
+                    widget.savefilter(selectedfilters);
                   });
                 }),
                 buildswitchtile('Vegan', 'Only include vegan meals', vegan,
                     (newval) {
                   setState(() {
                     vegan = newval;
+                    widget.savefilter(selectedfilters);
                   });
                 }),
               ],
