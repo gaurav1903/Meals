@@ -40,6 +40,7 @@ class _FilterScreenState extends State<FilterScreen> {
       'vegan': vegan,
       'vegetarian': vegetarian
     };
+    print(glutenfree);
     return Scaffold(
       appBar: AppBar(
         title: Text('filters'),
@@ -59,6 +60,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     (newval) {
                   setState(() {
                     glutenfree = newval;
+                    selectedfilters['gluten'] = glutenfree;
                     widget.savefilter(selectedfilters);
                   });
                 }),
@@ -66,6 +68,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     'Only include lactose-free meals', lactosefree, (newval) {
                   setState(() {
                     lactosefree = newval;
+                    selectedfilters['lactose'] = lactosefree;
                     widget.savefilter(selectedfilters);
                   });
                 }),
@@ -74,6 +77,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     (newval) {
                   setState(() {
                     vegetarian = newval;
+                    selectedfilters['vegetarian'] = vegetarian;
                     widget.savefilter(selectedfilters);
                   });
                 }),
@@ -81,6 +85,7 @@ class _FilterScreenState extends State<FilterScreen> {
                     (newval) {
                   setState(() {
                     vegan = newval;
+                    selectedfilters['vegan'] = vegan;
                     widget.savefilter(selectedfilters);
                   });
                 }),
